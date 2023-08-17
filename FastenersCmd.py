@@ -50,6 +50,7 @@ translate("FastenerCmdTreeView", "ScrewTap")
 translate("FastenerCmdTreeView", "ScrewDie")
 translate("FastenerCmdTreeView", "Insert")
 translate("FastenerCmdTreeView", "RetainingRing")
+translate("FastenerCmdTreeView", "USThingies")
 
 ScrewParameters = {"type", "diameter",
                    "matchOuter", "thread", "leftHanded", "length"}
@@ -87,6 +88,7 @@ ThreadedRodGroup = translate("FastenerCmd", "ThreadedRod")
 PEMInsertsGroup = translate("FastenerCmd", "PEM Inserts")
 RetainingRingGroup = translate("FastenerCmd", "Retaining Rings")
 TSlotGroup = translate("FastenerCmd", "T Slot")
+USGroup = translate("FastenerCmd", "US Thingies")
 
 CMD_HELP = 0
 CMD_GROUP = 1
@@ -175,40 +177,40 @@ FSScrewCommandTable = {
 
     # Inch
 
-    "ASMEB18.2.1.1": (translate("FastenerCmd", "ASME B18.2.1 UNC Square bolts"), OtherHeadGroup, ScrewParametersLC),
-    "ASMEB18.2.1.6": (translate("FastenerCmd", "ASME B18.2.1 UNC Hex head screws"), HexHeadGroup, ScrewParametersLC),
-    "ASMEB18.2.1.8": (translate("FastenerCmd", "ASME B18.2.1 UNC Hex head screws with flange"), HexHeadGroup, ScrewParametersLC),
+    "ASMEB18.2.1.1": (translate("FastenerCmd", "ASME B18.2.1 UNC Square bolts"), USGroup, ScrewParametersLC),
+    "ASMEB18.2.1.6": (translate("FastenerCmd", "ASME B18.2.1 UNC Hex head screws"), USGroup, ScrewParametersLC),
+    "ASMEB18.2.1.8": (translate("FastenerCmd", "ASME B18.2.1 UNC Hex head screws with flange"), USGroup, ScrewParametersLC),
 
-    "ASMEB18.3.1A": (translate("FastenerCmd", "ASME B18.3 UNC Hex socket head cap screws"), HexagonSocketGroup, ScrewParametersLC),
-    "ASMEB18.3.1G": (translate("FastenerCmd", "ASME B18.3 UNC Hex socket head cap screws with low head"), HexagonSocketGroup, ScrewParametersLC),
-    "ASMEB18.3.2": (translate("FastenerCmd", "ASME B18.3 UNC Hex socket countersunk head screws"), HexagonSocketGroup, ScrewParametersLC),
-    "ASMEB18.3.3A": (translate("FastenerCmd", "ASME B18.3 UNC Hex socket button head screws"), HexagonSocketGroup, ScrewParametersLC),
-    "ASMEB18.3.3B": (translate("FastenerCmd", "ASME B18.3 UNC Hex socket button head screws with flange"), HexagonSocketGroup, ScrewParametersLC),
-    "ASMEB18.3.4": (translate("FastenerCmd", "ASME B18.3 UNC Hexagon socket head shoulder screws"), HexagonSocketGroup, ScrewParametersLC),
-    "ASMEB18.3.5A": (translate("FastenerCmd", "ASME B18.3 UNC Hexagon socket set screws with flat point"), HexagonSocketGroup, ScrewParametersLC),
-    "ASMEB18.3.5B": (translate("FastenerCmd", "ASME B18.3 UNC Hexagon socket set screws with cone point"), HexagonSocketGroup, ScrewParametersLC),
-    "ASMEB18.3.5C": (translate("FastenerCmd", "ASME B18.3 UNC Hexagon socket set screws with dog point"), HexagonSocketGroup, ScrewParametersLC),
-    "ASMEB18.3.5D": (translate("FastenerCmd", "ASME B18.3 UNC Hexagon socket set screws with cup point"), HexagonSocketGroup, ScrewParametersLC),
+    "ASMEB18.3.1A": (translate("FastenerCmd", "ASME B18.3 UNC Hex socket head cap screws"), USGroup, ScrewParametersLC),
+    "ASMEB18.3.1G": (translate("FastenerCmd", "ASME B18.3 UNC Hex socket head cap screws with low head"), USGroup, ScrewParametersLC),
+    "ASMEB18.3.2": (translate("FastenerCmd", "ASME B18.3 UNC Hex socket countersunk head screws"), USGroup, ScrewParametersLC),
+    "ASMEB18.3.3A": (translate("FastenerCmd", "ASME B18.3 UNC Hex socket button head screws"), USGroup, ScrewParametersLC),
+    "ASMEB18.3.3B": (translate("FastenerCmd", "ASME B18.3 UNC Hex socket button head screws with flange"), USGroup, ScrewParametersLC),
+    "ASMEB18.3.4": (translate("FastenerCmd", "ASME B18.3 UNC Hexagon socket head shoulder screws"), USGroup, ScrewParametersLC),
+    "ASMEB18.3.5A": (translate("FastenerCmd", "ASME B18.3 UNC Hexagon socket set screws with flat point"), USGroup, ScrewParametersLC),
+    "ASMEB18.3.5B": (translate("FastenerCmd", "ASME B18.3 UNC Hexagon socket set screws with cone point"), USGroup, ScrewParametersLC),
+    "ASMEB18.3.5C": (translate("FastenerCmd", "ASME B18.3 UNC Hexagon socket set screws with dog point"), USGroup, ScrewParametersLC),
+    "ASMEB18.3.5D": (translate("FastenerCmd", "ASME B18.3 UNC Hexagon socket set screws with cup point"), USGroup, ScrewParametersLC),
 
-    "ASMEB18.6.3.1A": (translate("FastenerCmd", "ASME B18.6.3 UNC slotted countersunk flat head screws"), SlottedGroup, ScrewParametersLC),
+    "ASMEB18.6.3.1A": (translate("FastenerCmd", "ASME B18.6.3 UNC slotted countersunk flat head screws"), USGroup, ScrewParametersLC),
 
-    "ASMEB18.5.2": (translate("FastenerCmd", "ASME B18.5 UNC Round head square neck bolts"), OtherHeadGroup, ScrewParametersLC),
+    "ASMEB18.5.2": (translate("FastenerCmd", "ASME B18.5 UNC Round head square neck bolts"), USGroup, ScrewParametersLC),
 
-    "ASMEB18.2.2.1A": (translate("FastenerCmd", "ASME B18.2.2 UNC Hex Machine screw nuts"), NutGroup, NutParameters),
-    "ASMEB18.2.2.1B": (translate("FastenerCmd", "ASME B18.2.2 UNC Square machine screw nuts"), NutGroup, NutParameters),
-    "ASMEB18.2.2.2": (translate("FastenerCmd", "ASME B18.2.2 UNC Square nuts"), NutGroup, NutParameters),
-    "ASMEB18.2.2.4A": (translate("FastenerCmd", "ASME B18.2.2 UNC Hexagon nuts"), NutGroup, NutParameters),
-    "ASMEB18.2.2.4B": (translate("FastenerCmd", "ASME B18.2.2 UNC Hexagon thin nuts"), NutGroup, NutParameters),
-    "ASMEB18.2.2.5": (translate("FastenerCmd", "ASME B18.2.2 UNC Hex slotted nuts"), NutGroup, NutParameters),
-    "ASMEB18.2.2.12": (translate("FastenerCmd", "ASME B18.2.2 UNC Hex flange nuts"), NutGroup, NutParameters),
-    "ASMEB18.2.2.13": (translate("FastenerCmd", "ASME B18.2.2 UNC Hex coupling nuts"), NutGroup, NutParameters),
-    "ASMEB18.6.9A": (translate("FastenerCmd", "ASME B18.6.9 wing nuts, type A"), NutGroup, NutParameters),
-    "SAEJ483a1": (translate("FastenerCmd", "SAE J483a low cap nuts"), NutGroup, NutParameters),
-    "SAEJ483a2": (translate("FastenerCmd", "SAE J483a high cap nuts"), NutGroup, NutParameters),
+    "ASMEB18.2.2.1A": (translate("FastenerCmd", "ASME B18.2.2 UNC Hex Machine screw nuts"), USGroup, NutParameters),
+    "ASMEB18.2.2.1B": (translate("FastenerCmd", "ASME B18.2.2 UNC Square machine screw nuts"), USGroup, NutParameters),
+    "ASMEB18.2.2.2": (translate("FastenerCmd", "ASME B18.2.2 UNC Square nuts"), USGroup, NutParameters),
+    "ASMEB18.2.2.4A": (translate("FastenerCmd", "ASME B18.2.2 UNC Hexagon nuts"), USGroup, NutParameters),
+    "ASMEB18.2.2.4B": (translate("FastenerCmd", "ASME B18.2.2 UNC Hexagon thin nuts"), USGroup, NutParameters),
+    "ASMEB18.2.2.5": (translate("FastenerCmd", "ASME B18.2.2 UNC Hex slotted nuts"), USGroup, NutParameters),
+    "ASMEB18.2.2.12": (translate("FastenerCmd", "ASME B18.2.2 UNC Hex flange nuts"), USGroup, NutParameters),
+    "ASMEB18.2.2.13": (translate("FastenerCmd", "ASME B18.2.2 UNC Hex coupling nuts"), USGroup, NutParameters),
+    "ASMEB18.6.9A": (translate("FastenerCmd", "ASME B18.6.9 wing nuts, type A"), USGroup, NutParameters),
+    "SAEJ483a1": (translate("FastenerCmd", "SAE J483a low cap nuts"), USGroup, NutParameters),
+    "SAEJ483a2": (translate("FastenerCmd", "SAE J483a high cap nuts"), USGroup, NutParameters),
 
-    "ASMEB18.21.1.12A": (translate("FastenerCmd", "ASME B18.21.1 UN washers, narrow series"), WasherGroup, WasherParameters),
-    "ASMEB18.21.1.12B": (translate("FastenerCmd", "ASME B18.21.1 UN washers, regular series"), WasherGroup, WasherParameters),
-    "ASMEB18.21.1.12C": (translate("FastenerCmd", "ASME B18.21.1 UN washers, wide series"), WasherGroup, WasherParameters),
+    "ASMEB18.21.1.12A": (translate("FastenerCmd", "ASME B18.21.1 UN washers, narrow series"), USGroup, WasherParameters),
+    "ASMEB18.21.1.12B": (translate("FastenerCmd", "ASME B18.21.1 UN washers, regular series"), USGroup, WasherParameters),
+    "ASMEB18.21.1.12C": (translate("FastenerCmd", "ASME B18.21.1 UN washers, wide series"), USGroup, WasherParameters),
 
     "ScrewTap": (translate("FastenerCmd", "Metric threaded rod for tapping holes"), ThreadedRodGroup, RodParameters),
     "ScrewTapInch": (translate("FastenerCmd", "Inch threaded rod for tapping holes"), ThreadedRodGroup, RodParameters),
@@ -700,5 +702,6 @@ FastenerBase.FSAddFastenerType("Standoff")
 FastenerBase.FSAddFastenerType("Stud")
 FastenerBase.FSAddFastenerType("HeatSet", False)
 FastenerBase.FSAddFastenerType("RetainingRing", False)
+FastenerBase.FSAddFastenerType("USThingies", False)
 for item in ScrewMaker.screwTables:
     FastenerBase.FSAddItemsToType(ScrewMaker.screwTables[item][0], item)
