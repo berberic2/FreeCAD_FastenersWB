@@ -9,11 +9,29 @@
 # sudo apt install -y pyqt5-dev-tools
 #
 # This is array of supported languages. New languages, must be added to it.
+languages=(es-ar es-es pt-br pt-pt ru pl fr de)
+#
+function usage() {
+    echo "usage: update.sh [language]"
+    echo
+    echo "language has to be one of: ${languages[*]}"
+}
+#
+# command line arguments
+for a in $@; do
+    if [ "$a" == "--help" -o "$a" == "-h" ]; then
+	usage
+	exit 0
+    fi
+done
+#
 if [ $# -eq 1 ]; then
-    languages="$1"
-else
-    languages=(es-ar es-es pt-br pt-pt ru pl fr de)
+    languages=("$1")
+elif [ $# -ne 0 ]; then
+    usage
+    exit 1
 fi
+echo "Now processing: ${languages[@]}"
 #
 for lang in ${languages[*]}
 do
