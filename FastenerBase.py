@@ -977,7 +977,7 @@ class FSMakeBomCommand:
                          " Retaining Ring ") + obj.Diameter, cnt)
 
     def AddTSlot(self, obj, cnt):
-        if obj.Type == "GN505.4":
+        if obj.Type in ["GN505.4", "DIN787"]:
             self.AddFastener(obj.Type + translate("FastenerBase", " T-Slot Bolt ")
                              + obj.Diameter + " " + obj.SlotWidth, cnt)
         else:

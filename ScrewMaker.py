@@ -257,6 +257,7 @@ screwTables = {
     "DIN935": ("Nut", "makeCastleNut"),
     "DIN985": ("Nut", "makeNylocNut"),
     "DIN508": ("TSlot", "makeTSlot"),
+    "DIN787": ("TSlot", "makeTSlot"),
     "4PWTI": ("Nut", "makeTeeNut"),
     "GN505": ("TSlot", "makeTSlot"),
     "GN505.4": ("TSlot", "makeTSlot"),

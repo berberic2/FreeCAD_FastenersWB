@@ -118,7 +118,7 @@ def makeTSlot(self, fa):  # dynamically loaded method of class Screw
     - GN 507:   T-Slot sliding nut for Aluminum Profiles
     """
     d = fa.calc_diam # String value, ex: M6
-    if fa.baseType == "GN505.4":
+    if fa.baseType in ["GN505.4", "DIN787"]:
         dia = self.getDia(fa.calc_diam, False) # Converted numeric value
     else:
         dia = self.getDia(fa.calc_diam, True) # Converted numeric value
@@ -275,4 +275,57 @@ def makeTSlot(self, fa):  # dynamically loaded method of class Screw
         fastener = makeBaseBody(a, e1, e2, f, h, k)
         return makeHole(self, fastener, fa, dia, h, P)
 
+    if fa.baseType == "DIN787":
+        # dia: durchm, P: pitch, a: slotwidth, sWidth: Slotname
+        l = fa.calc_len
+        print("####",f"{d};{sWidth};{l:.0f}", a, dia)
+        b,e1,e2,k,f, h = FsData[fa.baseType][f"{d};{sWidth};{l:.0f}"]
+        Pts1 = [(0, -l),
+                (dia*0.4, -l),
+                (dia*0.5, -l+dia*0.1)]
+        if not fa.Thread:
+            Pts1.append((dia*0.5, -l+b))
+        Pts1.extend([
+            (dia*0.5, -h+k),
+            (e2/2, -0.5*k),
+            (math.sqrt(e1*e1+e2*e2)/2, -0.5*k),
+            (math.sqrt(e1*e1+e2*e2)/2, k),
+            (0, k)])
+
+        fm = FastenerBase.FSFaceMaker()
+        fm.AddPoints(*Pts1)
+        face1 = fm.GetFace()
+        solid1 = self.RevolveZ(face1)
+
+        # cut-object
+        fm.Reset()
+        Pts2 = [(-e1/2, k),
+                (e1/2, k),
+                (e1/2, 0),
+                (a/2, 0),
+                (a/2, -l),
+                (-a/2, -l),
+                (-a/2, 0),
+                (-e1/2, 0)]
+        fm.AddPoints(*Pts2)
+        face2 = fm.GetFace()
+
+        solid2 = face2.extrude(Base.Vector(0, e2, 0))
+        solid2.Placement.move(Base.Vector(0, -e2/2, 0))
+        solid2 = solid2.makeFillet(f*1.2,
+                                   [solid2.Edges[5],
+                                    solid2.Edges[6],
+                                    solid2.Edges[22],
+                                    solid2.Edges[23]])
+        solid2 = solid2.makeChamfer(f, [solid2.Edges[0]])
+        # cut to solid
+        solid = solid1.common(solid2)
+
+        if fa.Thread:
+            thread_cutter = self.CreateBlindThreadCutter(dia, P, b)
+            thread_cutter.Placement.move(Base.Vector(0, 0, -l+b))
+            solid = solid.cut(thread_cutter)
+
+        return solid
+        
     raise NotImplementedError(f"Unknown fastener type: {fa.baseType}")

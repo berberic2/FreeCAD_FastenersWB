@@ -290,6 +290,7 @@ FSScrewCommandTable = {
     # TSlotGroup
 
     "DIN508": (translate("FastenerCmd", "T-Slot nuts"), TSlotGroup, TSlotNutParameters),
+    "DIN787": (translate("FastenerCmd", "T-Slot bolts"), TSlotGroup, TSlotBoltParameters),
     "GN505": (translate("FastenerCmd", "GN 505 Serrated Quarter-Turn T-Slot nuts"), TSlotGroup, TSlotNutParameters),
     "GN505.4": (translate("FastenerCmd", "GN 505.4 Serrated T-Slot Bolts"), TSlotGroup, TSlotBoltParameters),
     "GN506": (translate("FastenerCmd", "GN 506 T-Slot nuts to swivel in"), TSlotGroup, TSlotNutParameters),
