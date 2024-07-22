@@ -534,6 +534,7 @@ class FSScrewMaker(Screw):
         lenlist = []
         type = FSGetTypeAlias(type)
         rangeTableName = type + "range"
+        rangeListName = type + "rangelist"
         if diam != "Auto":
             if width is not None:
                 diam += "x" + width
@@ -550,6 +551,10 @@ class FSScrewMaker(Screw):
                     l = FastenerBase.LenStr2Num(len)
                     if l >= min and l <= max:
                         lenlist.append(len)
+            elif rangeListName in FsData:
+                lengthList = FsData[rangeListName]
+                lengthListD = lengthList[diam]
+                lenlist = list(lengthListD)
             else:
                 lens = FsData[type + "length"]
                 lenlist = list(lens[diam])
